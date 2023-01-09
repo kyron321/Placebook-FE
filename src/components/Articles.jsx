@@ -20,15 +20,13 @@ const ArticleList = () => {
     <div className="article-list">
       {articles.map((articles) => (
         <div className="article" key={articles.article_id}>
-          <div className="article-title">{articles.title}</div>
-          <div className="article-topic">{articles.topic}</div>
-          <div className="article-author">Posted By:{articles.author}</div>
-          <div className="article-body">{articles.body}</div>
-          <div className="article-date">Posted At:{articles.created_at}</div>
-          <div className="article-votes">{articles.votes} Likes</div>
-          <div className="article-comment-count">
-            {articles.comment_count} Comments
-          </div>
+          <h2 className="article-title">{articles.title}</h2>
+          <h3 className="article-topic">{articles.topic}</h3>
+          <h3 className="article-author">Posted By:{articles.author}</h3>
+          <h4 className="article-body">{articles.body}</h4>
+          <h3 className="article-date">Posted At:{articles.created_at}</h3>
+          <h4 className="article-votes">{articles.votes} Likes</h4>
+          <h4 className="article-comment-count">{articles.comment_count} Comments</h4>
         </div>
       ))}
     </div>
