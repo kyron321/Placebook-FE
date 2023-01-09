@@ -1,4 +1,9 @@
 .app {
   text-align: center;
+  color: hsla(183, 93%, 76%, 0.524);
+}
+
+.bubbles{
+  z-index: 0;
 }
 
