@@ -3,7 +3,7 @@ import { fetchArticles } from "../api";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
-//   const [isLoading, setIsLoading] = true;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchArticles().then((articleData) => {
@@ -11,19 +11,19 @@ const ArticleList = () => {
       console.log(articleData)
       console.log(articles)
       
-    //   setIsLoading(false);
+      setIsLoading(false);
     });
   }, []);
 
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return(
   <div className="article-list">
 {articles.map((articles)=>(
     <div className="article" key={articles.article_id}>
-        <div className="article-title">{articles.article_title}</div>
+        <div className="article-title">{articles.title}</div>
         <div className="article-topic">{articles.topic}</div>
         <div className="article-author">Posted By:{articles.author}</div>
         <div className="article-body">{articles.body}</div>
