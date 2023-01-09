@@ -1,11 +1,12 @@
-import "./Navbar.css"
+import "./Navbar.css";
 
-const Navbar = () => {
-    return ( 
-        <div className="navbar">
-            <nav className="navbar-text">Placebook</nav>
-        </div>
-     );
-}
- 
+const Navbar = ({ user }) => {
+  return (
+    <div className="navbar">
+      <div className="navbar-text">Placebook</div>
+      <div className="">{user}</div>
+    </div>
+  );
+};
+
 export default Navbar;

@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 
-const Bubbles = ({ isLoggedIn, setIsLoggedIn, user, setUser }) => {
+const Bubbles = ({ count }) => {
+  return Array.from(Array(count)).map(() => <div className="bubble" key={count++}/>);
+};
+
+const LoginForm = ({ setUser }) => {
   return (
-    <div class="bubbles">
+    <div className="bubbles">
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        
         className="input-container"
       >
         <h1 className="input-text1">Welcome to Placebook</h1>
@@ -15,60 +18,18 @@ const Bubbles = ({ isLoggedIn, setIsLoggedIn, user, setUser }) => {
           className="input"
           type={"text"}
           placeholder={"Enter User"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setUser(e.target.value);
+              e.preventDefault();
+            }
+          }}
         ></input>
       </motion.div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
+
+      <Bubbles count={50} />
     </div>
   );
 };
 
-export default Bubbles;
+export default LoginForm;

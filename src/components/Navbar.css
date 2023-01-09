@@ -1,9 +1,13 @@
-.navbar{
-    padding: 30px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.529);
+.navbar {
+  padding: 30px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.529);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5em;
 }
 
-.navbar-text{
-    font-size: 40px;
-    font-weight: 600;
+.navbar-text {
+  font-size: 40px;
+  font-weight: 600;
 }

@@ -7,26 +7,20 @@ import Footer from "./components/Footer";
 import Article from "./pages/article/Article";
 import Comments from "./pages/comments/Comments";
 import { useState } from "react";
-import Bubbles from "./components/Bubbles";
+import LoginForm from "./components/Bubbles";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState();
 
-  if (!isLoggedIn) {
-    return <Bubbles/>;
+  if (!user) {
+    return <LoginForm setUser={setUser} />;
   }
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar user={user} />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/articles/:article_id" element={<Article />} />
         <Route path="/articles/:article_id/comments" element={<Comments />} />
       </Routes>
