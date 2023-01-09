@@ -11,9 +11,10 @@ import Bubbles from "./components/Bubbles";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
 
   if (!isLoggedIn) {
-    return <Bubbles />;
+    return <Bubbles/>;
   }
 
   return (

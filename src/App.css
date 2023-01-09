@@ -1,9 +1,11 @@
 .app {
   text-align: center;
-  color: hsla(183, 93%, 76%, 0.524);
+  color: hsla(180, 16%, 92%, 0.798);
+  height: 100vh;
 }
 
 .bubbles{
   z-index: 0;
 }
+
 
