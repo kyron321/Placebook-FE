@@ -1,11 +1,11 @@
-import Articles from "../../components/Articles";
+import Articles from "../articles/Articles";
 
-const Home = () => {
-    return ( 
-        <div className="Home">
-            <Articles/>
-        </div>
-     );
-}
- 
+const Home = ({ articles, isLoading, handleClick }) => {
+  return (
+    <div className="Home">
+      <Articles articles={articles} isLoading={isLoading} handleClick={handleClick} />
+    </div>
+  );
+};
+
 export default Home;

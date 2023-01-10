@@ -1,11 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
 const myApi = axios.create({
-  baseURL: 'https://nc-news-api-dt2l.onrender.com/api/',
+  baseURL: "https://nc-news-api-dt2l.onrender.com/api/",
 });
 
-export const fetchArticles = () =>{
-    return myApi.get("articles").then((res)=>{
-        return res.data.articles;
-    })
-}
+export const fetchArticles = () => {
+  return myApi.get("articles").then((res) => {
+    return res.data.articles;
+  });
+};
+
+export const fetchArticlesById = (article_id) => {
+  return myApi.get(`articles/${article_id}`).then((res) => {
+    return res.data.article;
+  });
+};
