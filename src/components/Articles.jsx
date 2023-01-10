@@ -7,10 +7,12 @@ const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles().then((articleData) => {
-      setArticles(articleData);
-      setIsLoading(false);
-    });
+    setTimeout(() => {
+      fetchArticles().then((articleData) => {
+        setArticles(articleData);
+        setIsLoading(false);
+      });
+    },2000);
   }, []);
 
   if (isLoading) {
@@ -27,7 +29,9 @@ const ArticleList = () => {
           <h4 className="article-body">{articles.body}</h4>
           <h3 className="article-date">Posted At:{articles.created_at}</h3>
           <h4 className="article-votes">{articles.votes} Likes</h4>
-          <h4 className="article-comment-count">{articles.comment_count} Comments</h4>
+          <h4 className="article-comment-count">
+            {articles.comment_count} Comments
+          </h4>
         </div>
       ))}
     </div>
