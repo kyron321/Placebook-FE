@@ -10,10 +10,17 @@
 .navbar-text {
   font-size: 40px;
   font-weight: 600;
+  text-decoration: none;
+  color: #87bba2;
+  align-items: center;
+  display: flex;
 }
 
 .username{
     cursor: pointer;
 }
 
+.logo{
+  height: 60px;
+}
 
