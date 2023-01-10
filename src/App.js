@@ -1,17 +1,38 @@
 import "./App.css";
-import "./components/Bubbles.scss";
+import "./components/LoginForm.scss";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Home from "./pages/home/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Article from "./pages/article/Article";
 import Comments from "./pages/comments/Comments";
-import LoginForm from "./components/Bubbles";
+import LoginForm from "./components/LoginForm";
 import NotFound from "./pages/error/NotFound";
+import { useNavigate } from "react-router-dom";
+import { fetchArticles } from "./api";
 
 function App() {
   const [user, setUser] = useState("kyron");
+  const [article, setArticle] = useState({});
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchArticles().then((articleData) => {
+        setArticles(articleData);
+        setIsLoading(false);
+      });
+    }, 1000);
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleClick = (article) => {
+    setArticle(article);
+    navigate(`/articles/${article.article_id}`);
+  };
 
   if (!user) {
     return <LoginForm setUser={setUser} />;
@@ -21,10 +42,22 @@ function App() {
     <div className="app">
       <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/articles/:article_id" element={<Article />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              handleClick={handleClick}
+              articles={articles}
+              isLoading={isLoading}
+            />
+          }
+        />
+        <Route
+          path="/articles/:article_id"
+          element={<Article article={article} />}
+        />
         <Route path="/articles/:article_id/comments" element={<Comments />} />
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

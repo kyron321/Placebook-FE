@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import {useNavigate} from "react-router-dom"
 
 const Bubbles = ({ count }) => {
   return Array.from(Array(count)).map(() => <div className="bubble" key={count++}/>);
 };
 
 const LoginForm = ({ setUser }) => {
+  const navigate = useNavigate()
   return (
     <div className="bubbles">
       <motion.div
@@ -21,6 +23,7 @@ const LoginForm = ({ setUser }) => {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               setUser(e.target.value);
+              navigate("/")
               e.preventDefault();
             }
           }}

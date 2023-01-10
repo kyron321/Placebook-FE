@@ -1,9 +1,9 @@
-import Articles from "../../components/Articles";
+import Articles from "../articles/Articles";
 
-const Home = () => {
+const Home = ({ articles, isLoading, handleClick }) => {
   return (
     <div className="Home">
-      <Articles />
+      <Articles articles={articles} isLoading={isLoading} handleClick={handleClick} />
     </div>
   );
 };
