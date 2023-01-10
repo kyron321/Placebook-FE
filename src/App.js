@@ -1,19 +1,17 @@
 import "./App.css";
 import "./components/LoginForm.scss";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./pages/home/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Article from "./pages/article/Article";
 import Comments from "./pages/comments/Comments";
-import LoginForm from "./components/LoginForm";
 import NotFound from "./pages/error/NotFound";
 import { useNavigate } from "react-router-dom";
 import { fetchArticles } from "./api";
 
 function App() {
-  const [user, setUser] = useState("kyron");
   const [article, setArticle] = useState({});
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,13 +32,11 @@ function App() {
     navigate(`/articles/${article.article_id}`);
   };
 
-  if (!user) {
-    return <LoginForm setUser={setUser} />;
-  }
+
 
   return (
     <div className="app">
-      <Navbar user={user} setUser={setUser} />
+      <Navbar />
       <Routes>
         <Route
           path="/"

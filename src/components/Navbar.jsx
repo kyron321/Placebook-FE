@@ -1,12 +1,17 @@
+import { useState } from "react";
+import LoginForm from "./LoginForm";
 import "./Navbar.css";
 
-const Navbar = (props) => {
-  const user = props.user;
-  const setUser = props.setUser;
+const Navbar = () => {
+  const [user, setUser] = useState("kyron");
 
   const handleClick = (event) => {
     setUser(event.target.value);
   };
+
+  if (!user) {
+    return <LoginForm setUser={setUser} />;
+  }
 
   return (
     <div className="navbar">
