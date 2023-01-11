@@ -1,7 +1,8 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCommentsByArticleId } from "../../api";
+import { fetchCommentsByArticleId } from "../api";
+import "./Comments.css"
 
 const Comments = () => {
   const { article_id } = useParams();
@@ -19,26 +20,22 @@ const Comments = () => {
     return <div className="loader"></div>;
   }
 
-  //   Posted At: {moment(article.created_at).format("H:mmA")} on{" "}
-  //   {moment(article.created_at).format("DD MMM YY")}
-
   return (
-    <div className="comments">
-      <h2>Comments</h2>
-      <div className="article">
+    <section className="comments">
+      <div className="comments-container">
         {comments.map((comment) => (
-          <div key={comment.comment_id}>
+          <div className="comments-box" key={comment.comment_id}>
             <h3>{comment.author}</h3>
-            <div>{comment.body}</div>
-            <div style={{ fontSize: "12px" }}>
+            <h4>{comment.body}</h4>
+            <time style={{ fontSize: "12px" }}>
               Posted At: {moment(comment.created_at).format("H:mmA")} on{" "}
               {moment(comment.created_at).format("DD MMM YY")}
-              <div>{comment.votes} Upvotes</div>
-            </div>
+              <h5 className="votes">{comment.votes} Upvotes</h5>
+            </time>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

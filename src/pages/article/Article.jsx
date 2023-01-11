@@ -3,16 +3,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchArticlesById } from "../../api";
 import "./Article.css"
 import moment from "moment";
+import Comments from "../../components/Comments";
 
 const Article = () => {
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [loadComments, setLoadComments] = useState(false)
 
   const navigate = useNavigate();
 
   const handleClick = (article) => {
-    navigate(`/articles/${article.article_id}/comments`);
+    setLoadComments(true)
   };
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Article = () => {
   }
 
   return (
-    <div className="article">
+    <article className="article">
       <h2>{article.title}</h2>
       <h3>{article.topic}</h3>
       <h3>Posted By:{article.author}</h3>
@@ -39,10 +41,11 @@ const Article = () => {
         {moment(article.created_at).format("DD MMM YY")}
       </h3>
       <h4>{article.votes} Likes</h4>
-      <h4 className="comments-box" onClick={(event)=>handleClick(article)}>
-        {article.comment_count} Comments
-      </h4>
-    </div>
+      <button className="comments-button" onClick={(event)=>handleClick(article)}>
+        View {article.comment_count} Comments
+      </button>
+      {loadComments ? <Comments/> : null}
+    </article>
   );
 };
 
