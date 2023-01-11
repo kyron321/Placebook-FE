@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchArticlesById } from "../../api";
+import "./Article.css"
 import moment from "moment";
 
 const Article = () => {
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
+
+  const handleClick = (article) => {
+    navigate(`/articles/${article.article_id}/comments`);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,7 +39,9 @@ const Article = () => {
         {moment(article.created_at).format("DD MMM YY")}
       </h3>
       <h4>{article.votes} Likes</h4>
-      <h4>{article.comment_count} Comments</h4>
+      <h4 className="comments-box" onClick={(event)=>handleClick(article)}>
+        {article.comment_count} Comments
+      </h4>
     </div>
   );
 };
