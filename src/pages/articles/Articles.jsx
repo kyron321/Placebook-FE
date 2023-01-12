@@ -27,7 +27,7 @@ const ArticleList = ({ articles, isLoading,}) => {
           <h3>Posted By:{article.author}</h3>
           <h4>{article.body}</h4>
           <h3>Posted At: {moment(article.created_at).format("H:mmA")} on {moment(article.created_at).format("DD MMM YY")}</h3>
-          <h4>{article.votes} Likes</h4>
+          <h4>{article.votes} Votes</h4>
           <h4>{article.comment_count} Comments</h4>
         </div>
       ))}
