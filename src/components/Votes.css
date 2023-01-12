@@ -1,0 +1,13 @@
+.arrow-arrowUp,
+.arrow-arrowDown {
+  font-size: 24px;
+  width: auto;
+  cursor: pointer;
+}
+
+.arrow-arrowDown:hover{
+color: rgb(235, 46, 46);
+}
+.arrow-arrowUp:hover{
+    color:rgb(66, 183, 144)
+}

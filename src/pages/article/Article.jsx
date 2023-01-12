@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchArticlesById } from "../../api";
 import "./Article.css"
 import moment from "moment";
 import Comments from "../../components/Comments";
+import Votes from "../../components/Votes";
 
 const Article = () => {
-  const [article, setArticle] = useState({});
   const { article_id } = useParams();
+  const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [loadComments, setLoadComments] = useState(false)
-
-  const navigate = useNavigate();
-
+  const [loadComments, setLoadComments] = useState(false);
   const handleClick = (article) => {
-    setLoadComments(true)
+    setLoadComments(true);
   };
 
   useEffect(() => {
@@ -32,19 +30,24 @@ const Article = () => {
 
   return (
     <article className="article">
-      <h2>{article.title}</h2>
-      <h3>{article.topic}</h3>
-      <h3>Posted By:{article.author}</h3>
-      <h4>{article.body}</h4>
-      <h3>
-        Posted At: {moment(article.created_at).format("H:mmA")} on{" "}
-        {moment(article.created_at).format("DD MMM YY")}
-      </h3>
-      <h4>{article.votes} Likes</h4>
-      <button className="comments-button" onClick={(event)=>handleClick(article)}>
-        View {article.comment_count} Comments
-      </button>
-      {loadComments ? <Comments/> : null}
+      <div className="article-box">
+        <h2>{article.title}</h2>
+        <h3>{article.topic}</h3>
+        <h3>Posted By: {article.author}</h3>
+        <h4>{article.body}</h4>
+        <h3>
+          Posted At: {moment(article.created_at).format("H:mmA")} on{" "}
+          {moment(article.created_at).format("DD MMM YY")}
+        </h3>
+        <Votes article={article} setArticle={setArticle} />
+        <button
+          className="comments-button"
+          onClick={(event) => handleClick(article)}
+        >
+          View {article.comment_count} Comments
+        </button>
+      </div>
+      {loadComments ? <Comments /> : null}
     </article>
   );
 };

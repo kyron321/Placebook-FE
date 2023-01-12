@@ -30,7 +30,6 @@ const Comments = () => {
             <time style={{ fontSize: "12px" }}>
               Posted At: {moment(comment.created_at).format("H:mmA")} on{" "}
               {moment(comment.created_at).format("DD MMM YY")}
-              <h5 className="votes">{comment.votes} Upvotes</h5>
             </time>
           </div>
         ))}
