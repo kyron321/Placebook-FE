@@ -11,8 +11,13 @@ const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [loadComments, setLoadComments] = useState(false);
+
   const handleClick = (article) => {
-    setLoadComments(true);
+    if(!loadComments){
+      setLoadComments(true);
+    }else{
+      setLoadComments(false)
+    }
   };
 
   useEffect(() => {
