@@ -1,13 +1,32 @@
-.arrow-arrowUp,
-.arrow-arrowDown {
+.arrow {
   font-size: 24px;
   width: auto;
   cursor: pointer;
 }
 
-.arrow-arrowDown:hover{
-color: rgb(235, 46, 46);
+.arrowDown:hover {
+  color: rgb(235, 46, 46);
 }
-.arrow-arrowUp:hover{
-    color:rgb(66, 183, 144)
+.arrowUp:hover {
+  color: rgb(66, 183, 144);
 }
+
+.vote-button-down:disabled{
+  color: rgb(235, 46, 46);
+}
+
+.vote-button-up:disabled {
+  color: rgb(66, 183, 144);
+}
+
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
