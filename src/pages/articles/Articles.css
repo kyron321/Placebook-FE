@@ -6,6 +6,7 @@
   height: 120px;
   animation: spin 1s linear infinite;
   margin: 300px auto;
+  
 }
 
 @keyframes spin {

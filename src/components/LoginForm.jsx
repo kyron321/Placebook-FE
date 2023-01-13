@@ -20,7 +20,7 @@ const LoginForm = ({ setUser }) => {
         <h3 className="input-text2">Please Sign In</h3>
         <form>
           <input
-            className="input"
+            className="input-login"
             type={"text"}
             placeholder={"Enter User"}
             onKeyDown={(e) => {

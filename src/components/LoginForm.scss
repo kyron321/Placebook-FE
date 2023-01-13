@@ -31,11 +31,11 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
   justify-content: space-around;
 }
 
-.input::placeholder{
+.input-login::placeholder{
   color: rgb(205, 203, 203);
 }
 
-.input {
+.input-login {
   text-align: center;
   z-index: 0;
   font-size: large;
