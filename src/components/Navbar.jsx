@@ -8,7 +8,7 @@ import { AiFillHome, AiOutlineMessage } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 
 const Navbar = () => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("kyron");
 
   const handleClick = (event) => {
     setUser(event.target.value);
