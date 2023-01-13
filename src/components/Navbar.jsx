@@ -5,7 +5,7 @@ import "./Navbar.css";
 import logo from "../images/Placebook.svg";
 
 const Navbar = () => {
-  const [user, setUser] = useState("kyron");
+  const [user, setUser] = useState("");
 
   const handleClick = (event) => {
     setUser(event.target.value);
