@@ -13,6 +13,7 @@ import { fetchArticles, fetchArticlesById } from "./api";
 function App() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,13 +24,20 @@ function App() {
     }, 1000);
   }, []);
 
-  return (
+  return user ? (
     <div className="app">
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route
           path="/"
-          element={<Home articles={articles} isLoading={isLoading} />}
+          element={
+            <Home
+              articles={articles}
+              isLoading={isLoading}
+              user={user}
+              setUser={setUser}
+            />
+          }
         />
         <Route
           path="/articles/:article_id"
@@ -40,6 +48,26 @@ function App() {
       </Routes>
       <Footer />
     </div>
+  ) : (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Home
+            articles={articles}
+            isLoading={isLoading}
+            user={user}
+            setUser={setUser}
+          />
+        }
+      />
+      <Route
+        path="/articles/:article_id"
+        element={<Article fetchArticlesById={fetchArticlesById} />}
+      />
+      <Route path="/articles/:article_id/comments" element={<Comments />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

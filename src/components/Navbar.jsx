@@ -1,22 +1,18 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
 import "./Navbar.css";
 import logo from "../images/Placebook.svg";
 import profile from "../images/profile.svg";
 import { AiFillHome, AiOutlineMessage } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 
-const Navbar = () => {
-  const [user, setUser] = useState("kyron");
+const Navbar = ({setUser, user}) => {
+  
 
   const handleClick = (event) => {
     setUser(event.target.value);
   };
 
-  if (!user) {
-    return <LoginForm setUser={setUser} />;
-  }
+ 
 
   return (
     <div className="navbar">
@@ -28,7 +24,7 @@ const Navbar = () => {
       </Link>
     </div>
 
-    <input type="text" />
+    <input type="text" className="navbar-input" />
 
     <div className="icons">
       <AiOutlineMessage className="message" />

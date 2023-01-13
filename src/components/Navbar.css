@@ -52,7 +52,7 @@
   background-color: #00a67e;
 }
 
-input[type="text"] {
+.navbar-input {
   display: none;
 }
 
@@ -76,7 +76,7 @@ input[type="search"]:focus {
 }
 
 @media only screen and (min-width: 600px) {
-  input[type="text"] {
+  .navbar-input {
     height: 40px;
     width: 50%;
     border-radius: 1.25em;

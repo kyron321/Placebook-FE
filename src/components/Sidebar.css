@@ -3,8 +3,9 @@
   justify-content: center;
   padding-top: 100px;
   margin-top: 20px;
-  margin-right: 100px;
+  padding-right: 100px;
   width: 25%;
+  background-color: #f5f5f5; 
 }
 
 .home-container {
