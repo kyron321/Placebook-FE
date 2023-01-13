@@ -1,14 +1,36 @@
-.comments-box {
+.comments {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 10px auto;
-  width: 80%;
-  background-color: rgb(254, 254, 254);
+  width: 90%;
+  margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: default;
+  cursor: pointer;
+  background-color: white;
+}
+
+.comments-box{
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px;
+  border-bottom: solid 1px grey ;
+  width: 90%;
+  margin: 0 auto;
 }
 
 
+.profile {
+  border-radius: 5px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.author1 {
+  display: flex;
+  align-items: center;
+}
+
+.article-content1{
+  width: 80%;
+}

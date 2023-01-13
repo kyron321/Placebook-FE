@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { postCommentsToArticle } from "../api";
+import "./PostComment.css"
 
 const PostComment = ({ article_id, setLoadComments }) => {
   const [newComment, setNewComment] = useState("");
