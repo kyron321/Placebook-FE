@@ -28,3 +28,14 @@ export const patchVotes = (article_id,votes) =>{
     return res.data.article
   })
 }
+
+export const postCommentsToArticle = (article_id, newComment ) => {
+  return myApi
+    .post(`/articles/${article_id}/comments`, {
+      username: "grumpy19",
+      body: newComment,
+    })
+    .then((res) => {
+      return res.data.comment;
+    });
+};

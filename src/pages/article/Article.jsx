@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticlesById } from "../../api";
-import "./Article.css"
+import "./Article.css";
 import moment from "moment";
 import Comments from "../../components/Comments";
 import Votes from "../../components/Votes";
+import PostComment from "../../components/PostComment";
 
 const Article = () => {
   const { article_id } = useParams();
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadComments, setLoadComments] = useState(false);
 
-  const handleClick = (article) => {
-    if(!loadComments){
+  const handleClick = () => {
+    if (!loadComments) {
       setLoadComments(true);
-    }else{
-      setLoadComments(false)
+    } else {
+      setLoadComments(false);
     }
   };
 
@@ -52,6 +53,7 @@ const Article = () => {
           View {article.comment_count} Comments
         </button>
       </div>
+      <PostComment article_id={article_id} setLoadComments={setLoadComments}/>
       {loadComments ? <Comments /> : null}
     </article>
   );
