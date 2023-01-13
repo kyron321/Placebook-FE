@@ -53,7 +53,7 @@ const Article = () => {
           View {article.comment_count} Comments
         </button>
       </div>
-      <PostComment article_id={article_id}/>
+      <PostComment article_id={article_id} setLoadComments={setLoadComments}/>
       {loadComments ? <Comments /> : null}
     </article>
   );
